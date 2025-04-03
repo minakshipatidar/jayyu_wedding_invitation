@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>शुभ विवाह | Wedding Invitation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts - Poppins & Yatra One for Hindi text -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Yatra+One&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #D4AF37;
+            --secondary-color: #C41E3A;
+            --accent-color: #800000;
+            --text-color: #333;
+            --light-color: #fff;
+            --dark-color: #222;
+            --font-hindi: 'Yatra One', cursive;
+            --font-english: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-english);
+            color: var(--text-color);
+            background-color: #FFF8F0;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-hindi);
+            color: var(--accent-color);
+        }
+
+        /* Music Button */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .music-btn.playing {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: url('https://images.unsplash.com/photo-1519741347686-c1e331fcb4d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center;
+            background-size: cover;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-color);
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .hero-section .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero-section .container {
+            z-index: 2;
+        }
+
+        .mangalacharan h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .invitation-title h1 {
+            font-size: 4rem;
+            color: var(--light-color);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .divider span {
+            display: inline-block;
+            padding: 0 15px;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .couple-names h2 {
+            font-size: 3rem;
+            color: var(--light-color);
+            margin-bottom: 20px;
+        }
+
+        .couple-names .and {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin: 0 15px;
+        }
+
+        .invitation-msg p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-family: var(--font-hindi);
+        }
+
+        .main-date h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-down a {
+            color: var(--light-color);
+            font-size: 2rem;
+            text-decoration: none;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Couple Section */
+        .couple-section {
+            background-color: #FFF8F0;
+            padding: 80px 0;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .profile-img img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .groom-card,
+        .bride-card {
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .groom-card:hover,
+        .bride-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .groom-card h3,
+        .bride-card h3 {
+            font-size: 1.8rem;
+            margin: 15px 0 10px;
+        }
+
+        .groom-card p,
+        .bride-card p {
+            font-size: 1rem;
+            color: var(--text-color);
+            font-family: var(--font-hindi);
+        }
+
+        .heart-divider {
+            font-size: 3rem;
+            color: var(--secondary-color);
+        }
+
+        /* Events Section */
+        .events-section {
+            background-color: #FFF;
+            padding: 80px 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+/* 
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        } */
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-img {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            right: -40px;
+            background-color: var(--light-color);
+            border: 5px solid var(--primary-color);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .timeline-item:nth-child(even) .timeline-img {
+            left: -40px;
+        }
+
+        .timeline-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: var(--light-color);
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            border-right: 5px solid var(--secondary-color);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            width: 0;
+            height: 0;
+            top: 30px;
+            right: -15px;
+            border-width: 10px 0 10px 15px;
+            border-color: transparent transparent transparent var(--light-color);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -15px;
+            border-width: 10px 15px 10px 0;
+            border-color: transparent var(--light-color) transparent transparent;
+        }
+
+        .event-icon {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin: 15px 0 10px;
+            color: var(--accent-color);
+        }
+
+        .event-details {
+            margin: 10px 0;
+        }
+
+        .event-details p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .event-details i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+
+        .event-description {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-top: 10px;
+            font-family: var(--font-hindi);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: #FFF8F0;
+            padding: 80px 0;
+        }
+
+        .gallery-item {
+            margin-bottom: 30px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* RSVP Section */
+        .rsvp-section {
+            background-color: #FFF;
+            padding: 80px 0;
+        }
+
+        .rsvp-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background-color: #FFF8F0;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--accent-color);
+            font-family: var(--font-hindi);
+        }
+
+        .form-control {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+        }
+
+        .btn-rsvp {
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-rsvp:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Location Section */
+        .location-section {
+            background-color: #FFF8F0;
+            padding: 80px 0;
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .venue-details {
+            padding: 30px;
+            background-color: var(--light-color);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .venue-details h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .venue-details p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            font-family: var(--font-hindi);
+        }
+
+        .venue-details i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal */
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            border-bottom: none;
+            padding: 20px;
+        }
+
+        .modal-body {
+            padding: 0;
+        }
+
+        .modal-body img {
+            width: 100%;
+        }
+
+        .modal-footer {
+            border-top: none;
+            padding: 20px;
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .countdown-item {
+            margin: 0 15px;
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            background-color: var(--light-color);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-family: var(--font-hindi);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991px) {
+            .invitation-title h1 {
+                font-size: 3rem;
+            }
+
+            .couple-names h2 {
+                font-size: 2.5rem;
+            }
+
+            .invitation-msg p {
+                font-size: 1.2rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-img {
+                left: -10px;
+                right: auto;
+            }
+
+            .timeline-item:nth-child(even) .timeline-img {
+                left: -10px;
+            }
+
+            .timeline-content::after {
+                left: -15px;
+                border-width: 10px 15px 10px 0;
+                border-color: transparent var(--light-color) transparent transparent;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content {
+                border-right: none;
+                border-left: 5px solid var(--secondary-color);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .invitation-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .couple-names h2 {
+                font-size: 2rem;
+            }
+
+            .invitation-msg p {
+                font-size: 1rem;
+            }
+
+            .countdown-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+            }
+
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Audio Player (Hidden) -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Control Button -->
+    <button id="musicControl" class="music-btn">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Main Container -->
+    <div class="container-fluid p-0">
+        <!-- Hero Section -->
+        <section class="hero-section text-center">
+            <div class="overlay"></div>
+            <div class="container position-relative">
+                <div class="mangalacharan mb-4" data-aos="fade-down" data-aos-delay="100">
+                    <h3>|| श्री गणेशाय नमः ||</h3>
+                </div>
+                <div class="invitation-title" data-aos="fade-up" data-aos-delay="200">
+                    <h1 class="mb-4">शुभ विवाह</h1>
+                    <div class="divider">
+                        <span><i class="fas fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="couple-names mt-5" data-aos="fade-up" data-aos-delay="300">
+                    <h2>पवन (जय्यु) <span class="and">&</span> तन्नु</h2>
+                </div>
+                <div class="invitation-msg mt-4" data-aos="fade-up" data-aos-delay="400">
+                    <p>सादर आमंत्रित हैं आप हमारे परिवार के इस मंगल अवसर पर</p>
+                </div>
+                <div class="main-date mt-5" data-aos="fade-up" data-aos-delay="500">
+                    <h3>4 मई, 2025</h3>
+                </div>
+
+                <!-- Countdown Timer -->
+                <div class="countdown mt-5" data-aos="fade-up" data-aos-delay="600">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">दिन</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">घंटे</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">मिनट</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">सेकंड</div>
+                    </div>
+                </div>
+
+                <div class="scroll-down mt-5">
+                    <a href="#events">
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Couple Section -->
+        <section class="couple-section py-5">
+            <div class="container">
+                <div class="section-title text-center mb-5" data-aos="fade-up">
+                    <h2>परिचय</h2>
+                    <div class="divider">
+                        <span><i class="fas fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-5 text-center" data-aos="fade-right" data-aos-delay="100">
+                        <div class="groom-card">
+                            <div class="profile-img mb-4">
+                                <img src="./img/jayyu.JPG" alt="Groom" class="img-fluid rounded-circle">
+                            </div>
+                            <h3>पवन (जय्यु)</h3>
+                            <p>पुत्र श्री महादेव पटिदार एवं श्रीमती माया पटिदार</p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center my-4 my-md-0" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="heart-divider">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-5 text-center" data-aos="fade-left" data-aos-delay="100">
+                        <div class="bride-card">
+                            <div class="profile-img mb-4">
+                                <img src="./img/tannu.jpg" alt="Bride" class="img-fluid rounded-circle">
+                            </div>
+                            <h3>तन्नु</h3>
+                            <p>पुत्री श्री अनिल पाटीदार एवं श्रीमती सुनीता पाटीदार</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="events-section py-5">
+            <div class="container">
+                <div class="section-title text-center mb-5" data-aos="fade-up">
+                    <h2>कार्यक्रम</h2>
+                    <div class="divider">
+                        <span><i class="fas fa-heart"></i></span>
+                    </div>
+                </div>
+
+                <!-- Events Timeline -->
+                <div class="timeline">
+                    <!-- Mehendi -->
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-img">
+                            <img src="./img/mehandi.png" alt="Mehendi" class="img-fluid">
+                        </div>
+                        <div class="timeline-content">
+                            <div class="event-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h3>मेहंदी समारोह</h3>
+                            <div class="event-details">
+                                <p><i class="far fa-calendar-alt"></i> 2 मई, 2025</p>
+                                <p><i class="far fa-clock"></i> शाम 4:00 बजे से</p>
+                                <p><i class="fas fa-map-marker-alt"></i> छोटी खरगोन, मध्य प्रदेश</p>
+                            </div>
+                            <p class="event-description">दूल्हे के दोस्तों और परिवार के लिए ख़ास मेहंदी और संगीत का
+                                कार्यक्रम</p>
+                        </div>
+                    </div>
+
+                    <!-- Ganesh Poojan -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-img">
+                            <img src="./img/geneshpujan.png" alt="Ganesh Poojan" class="img-fluid">
+                        </div>
+                        <div class="timeline-content">
+                            <div class="event-icon">
+                                <i class="fas fa-om"></i>
+                            </div>
+                            <h3>गणेश पूजन</h3>
+                            <div class="event-details">
+                                <p><i class="far fa-calendar-alt"></i> 3 मई, 2025</p>
+                                <p><i class="far fa-clock"></i> सुबह 8:00 बजे</p>
+                                <p><i class="fas fa-map-marker-alt"></i> छोटी खरगोन, मध्य प्रदेश</p>
+                            </div>
+                            <p class="event-description">मंगल कार्य की शुरुआत के लिए श्री गणेश जी का पूजन</p>
+                        </div>
+                    </div>
+                    <!-- Haldi -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-img">
+                            <img src="./img/haldi.png" alt="Haldi" class="img-fluid">
+                        </div>
+                        <div class="timeline-content">
+                            <div class="event-icon">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <h3>हल्दी समारोह</h3>
+                            <div class="event-details">
+                                <p><i class="far fa-calendar-alt"></i> 3 मई, 2025</p>
+                                <p><i class="far fa-clock"></i> सुबह 11:00 बजे</p>
+                                <p><i class="fas fa-map-marker-alt"></i> छोटी खरगोन, मध्य प्रदेश</p>
+                            </div>
+                            <p class="event-description">हल्दी, मंगलगीत और पारंपरिक रिवाज</p>
+                        </div>
+                    </div>
+
+                    <!-- Sangeet -->
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-img">
+                            <img src="./img/sangeet.png" alt="Sangeet" class="img-fluid">
+                        </div>
+                        <div class="timeline-content">
+                            <div class="event-icon">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <h3>संगीत संध्या</h3>
+                            <div class="event-details">
+                                <p><i class="far fa-calendar-alt"></i> 3 मई, 2025</p>
+                                <p><i class="far fa-clock"></i> रात 8:00 बजे</p>
+                                <p><i class="fas fa-map-marker-alt"></i> छोटी खरगोन, मध्य प्रदेश</p>
+                            </div>
+                            <p class="event-description">डीजे नाइट, नृत्य प्रतियोगिता और विशेष परफॉर्मेंस</p>
+                        </div>
+                    </div>
+
+                    <!-- Ring Ceremony -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-img">
+                            <img src="./img/ringceremony.png" alt="Ring Ceremony" class="img-fluid">
+                        </div>
+                        <div class="timeline-content">
+                            <div class="event-icon">
+                                <i class="fas fa-ring"></i>
+                            </div>
+                            <h3>अंगूठी समारोह</h3>
+                            <div class="event-details">
+                                <p><i class="far fa-calendar-alt"></i> 4 मई, 2025</p>
+                                <p><i class="far fa-clock"></i> सुबह 8:30 बजे</p>
+                                <p><i class="fas fa-map-marker-alt"></i> छोटी खरगोन, मध्य प्रदेश</p>
+                            </div>
+                            <p class="event-description">वर-वधू द्वारा अंगूठियों का आदान-प्रदान और परिवार का आशीर्वाद
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Reception -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-img">
+                            <img src="./img/bhojan.png" alt="Reception" class="img-fluid">
+                        </div>
+                        <div class="timeline-content">
+                            <div class="event-icon">
+                                <i class="fas fa-glass-cheers"></i>
+                            </div>
+                            <h3>स्वरुचि भोज</h3>
+                            <div class="event-details">
+                                <p><i class="far fa-calendar-alt"></i> 4 मई, 2025</p>
+                                <p><i class="far fa-clock"></i> सुबह 10:00 बजे</p>
+                                <p><i class="fas fa-map-marker-alt"></i> छोटी खरगोन, मध्य प्रदेश</p>
+                            </div>
+                            <p class="event-description">शाही व्यंजन, संगीत और मिलन समारोह</p>
+                        </div>
+                    </div>
+
+                    <!-- Baraat -->
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-img">
+                            <img src="./img/barat.png" alt="Baraat" class="img-fluid">
+                        </div>
+                        <div class="timeline-content">
+                            <div class="event-icon">
+                                <i class="fas fa-horse"></i>
+                            </div>
+                            <h3>बारात</h3>
+                            <div class="event-details">
+                                <p><i class="far fa-calendar-alt"></i> 5 मई, 2025</p>
+                                <p><i class="far fa-clock"></i> सुबह 7:00 बजे</p>
+                                <p><i class="fas fa-map-marker-alt"></i> समसपुरा</p>
+                            </div>
+                            <p class="event-description">घोड़ी, बैंड-बाजा और नाच-गाना</p>
+                        </div>
+                    </div>
+
+                    <!-- Wedding -->
+                    <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-img">
+                            <img src="./img/wedding.png" alt="Wedding" class="img-fluid">
+                        </div>
+                        <div class="timeline-content">
+                            <div class="event-icon">
+                                <i class="fas fa-ring"></i>
+                            </div>
+                            <h3>विवाह </h3>
+                            <div class="event-details">
+                                <p><i class="far fa-calendar-alt"></i> 5 मई, 2025</p>
+                                <p><i class="far fa-clock"></i> प्रातः 12:00 बजे</p>
+                                <p><i class="fas fa-map-marker-alt"></i> समसपुरा</p>
+                            </div>
+                            <p class="event-description">शुभ मुहूर्त में विवाह संस्कार</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section py-5">
+            <div class="container">
+                <div class="section-title text-center mb-5" data-aos="fade-up">
+                    <h2>तस्वीरें</h2>
+                    <div class="divider">
+                        <span><i class="fas fa-heart"></i></span>
+                    </div>
+                </div>
+                <div class="row g-4" id="gallery">
+                    <!-- Images will be added dynamically via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="rsvp-section py-5">
+            <div class="container">
+                <div class="section-title text-center mb-5" data-aos="fade-up">
+                    <h2>कृपया पधारें</h2>
+                    <div class="divider">
+                        <span><i class="fas fa-heart"></i></span>
+                    </div>
+                    <p class="mt-3">आपकी उपस्थिति हमारे लिए सौभाग्य की बात होगी</p>
+                </div>
+
+
+                <!-- Location Section -->
+                <section class="location-section py-5">
+                    <div class="container">
+                        <div class="section-title text-center mb-5" data-aos="fade-up">
+                            <h2>स्थान</h2>
+                            <div class="divider">
+                                <span><i class="fas fa-heart"></i></span>
+                            </div>
+                        </div>
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                                <div class="map-container">
+                                    <!-- Google Maps embed for Choti Khargone, Madhya Pradesh -->
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.1661027121!2d75.701135!3d22.187184!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zMjLCsDExJzEzLjkiTiA3NcKwNDInMDQuMSJF!5e0!3m2!1sen!2sin!4v1714394175123!5m2!1sen!2sin"
+                                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+                                <div class="venue-details">
+                                    <h3>स्थान</h3>
+                                    <p><i class="fas fa-map-marker-alt"></i> छोटी खरगोन, मध्य प्रदेश</p>
+                                    <p><i class="fas fa-directions"></i> निर्देश: पवन कृषिफार्म छोटी खरगोन </p>
+                                    <p><i class="fas fa-phone"></i> संपर्क: 7987611538</p>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="footer">
+                    <div class="container">
+                        <p>पवन & तन्नु के विवाह का निमंत्रण | 4 मई, 2025</p>
+                        <p class="mt-2">
+                            <a href="#" id="shareWhatsapp"><i class="fab fa-whatsapp me-2"></i>WhatsApp पर शेयर करें</a>
+                        </p>
+                    </div>
+                </footer>
+            </div>
+
+            <!-- Image Modal -->
+            <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="" id="modalImage" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bootstrap JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- AOS Animation Library -->
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <!-- Custom JS -->
+            <script>
+                // Initialize AOS Animation
+                AOS.init({
+                    duration: 1000,
+                    once: true
+                });
+
+                // Background Music Control
+                const musicBtn = document.getElementById('musicControl');
+                const bgMusic = document.getElementById('bgMusic');
+                let isMusicPlaying = false;
+
+                musicBtn.addEventListener('click', function () {
+                    if (isMusicPlaying) {
+                        bgMusic.pause();
+                        musicBtn.classList.remove('playing');
+                    } else {
+                        bgMusic.play();
+                        musicBtn.classList.add('playing');
+                    }
+                    isMusicPlaying = !isMusicPlaying;
+                });
+
+                // Countdown Timer
+                function updateCountdown() {
+                    const weddingDate = new Date('may 4, 2025 20:00:00').getTime();
+                    const now = new Date().getTime();
+                    const timeLeft = weddingDate - now;
+
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    document.getElementById('days').innerText = days.toString().padStart(2, '0');
+                    document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                    document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+                }
+
+                // Update countdown every second
+                setInterval(updateCountdown, 1000);
+                updateCountdown();
+
+                // Gallery Images
+                const galleryImages = [
+                    './img/1.JPG',
+                    './img/2.JPG',
+                    './img/3.JPG',
+                    './img/4.JPG',
+                ];
+
+                // Populate Gallery
+                const galleryContainer = document.getElementById('gallery');
+                galleryImages.forEach((image, index) => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'col-md-4 col-sm-6';
+                    galleryItem.setAttribute('data-aos', 'fade-up');
+                    galleryItem.setAttribute('data-aos-delay', (index * 100).toString());
+
+                    galleryItem.innerHTML = `
+                <div class="gallery-item">
+                    <img src="${image}" alt="Gallery Image ${index + 1}" class="img-fluid">
+                </div>
+            `;
+
+                    galleryContainer.appendChild(galleryItem);
+
+                    // Add click event for modal
+                    galleryItem.querySelector('.gallery-item').addEventListener('click', function () {
+                        const modalImage = document.getElementById('modalImage');
+                        modalImage.src = image;
+
+                        const imageModal = new bootstrap.Modal(document.getElementById('imageModal'));
+                        imageModal.show();
+                    });
+                });
+
+                // RSVP Form Submission
+                document.getElementById('rsvpForm').addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const phone = document.getElementById('phone').value;
+                    const attending = document.querySelector('input[name="attendance"]:checked').value;
+                    const guests = document.getElementById('guests').value;
+                    const message = document.getElementById('message').value;
+
+                    // Here you would typically send this data to a server
+                    // For demo purposes, we'll just show an alert
+                    alert(`धन्यवाद ${name}! आपका RSVP प्राप्त हो गया है।`);
+
+                    // Reset form
+                    this.reset();
+                });
+
+                // WhatsApp Share
+                document.getElementById('shareWhatsapp').addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const message = encodeURIComponent('अमित और प्रिया के विवाह का निमंत्रण | 25 अप्रैल, 2025 | कृपया पधारकर आशीर्वाद दें।');
+                    const whatsappUrl = `https://wa.me/?text=${message}`;
+
+                    window.open(whatsappUrl, '_blank');
+                });
+            </script>
+</body>
+
+</html>
